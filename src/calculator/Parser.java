@@ -25,7 +25,7 @@ public class Parser {
         return temp;
     }
 
-    private double parseTerm() throws IOException, LexerException, ParserException {
+    public double parseTerm() throws IOException, LexerException, ParserException {
         double temp = parseFactor();
         while(current.getType() == LexemeType.MULT || current.getType() == LexemeType.DIV){
             if(current.getType() == LexemeType.MULT){
@@ -39,7 +39,7 @@ public class Parser {
         return temp;
     }
 
-    private double parseFactor() throws IOException, LexerException, ParserException {
+    public double parseFactor() throws IOException, LexerException, ParserException {
         double temp = parsePower();
         if (current.getType() == LexemeType.POWER){
             current = lexer.getLexeme();
@@ -48,7 +48,7 @@ public class Parser {
         return temp;
     }
 
-    private double parsePower() throws IOException, LexerException, ParserException {
+    public double parsePower() throws IOException, LexerException, ParserException {
         double temp;
         if(current.getType() == LexemeType.MINUS){
             current = lexer.getLexeme();
@@ -59,7 +59,7 @@ public class Parser {
         return temp;
     }
 
-    private double parseAtom() throws IOException, LexerException, ParserException {
+    public double parseAtom() throws IOException, LexerException, ParserException {
         double temp;
         if (current.getType() == LexemeType.NUM){
             temp = Integer.valueOf(current.getValue());

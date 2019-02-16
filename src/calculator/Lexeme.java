@@ -24,4 +24,9 @@ public class Lexeme {
     public void setType(LexemeType type) {
         this.type = type;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((Lexeme)obj).getValue().equals(this.value) && ((Lexeme)obj).getType().equals(this.type);
+    }
 }
